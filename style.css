@@ -2,16 +2,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: bold;
 }
-
 .result{
     border: 1px solid black;
-    width: 240px;
+    width: 50vw;
     height: 4%;
-    text-align: center;
+    text-align: end;
     font-size: 20px;
+    overflow: hidden;
+    border: hidden;
+    border-bottom: 1px solid black;
+    outline: none;
+    margin-right: 40px;
 }
-
+.equation{
+    border: 1px solid black;
+    width: 50vw;
+    height: 4%;
+    text-align: end;
+    font-size: 20px;
+    overflow: hidden;
+    border: hidden;
+    outline: none;
+    margin-right: 40px;
+}
 button{
     height: 50px;
     width: 50px;
