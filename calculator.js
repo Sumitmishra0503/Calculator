@@ -8,7 +8,7 @@ const seven = document.getElementById('seven');
 const eight = document.getElementById('eight');
 const nine = document.getElementById('nine');
 const zero = document.getElementById('zero');
-const doubleZero = document.getElementById('doubleZero');
+const dot = document.getElementById('dot');
 const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const multiply = document.getElementById('mul');
@@ -16,112 +16,107 @@ const divide = document.getElementById('divide');
 const equal = document.getElementById('equal');
 const reset = document.getElementById('reset');
 const Result = document.querySelector('.result');
+const Equation = document.querySelector('.equation');
 
-
-// alert('Welcome !!')
 
 let String = '';
 
 one.onclick = function(){
     String+='1';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 two.onclick = function(){
     String+='2';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 three.onclick = function(){
     String+='3';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 four.onclick = function(){
     String+='4';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 five.onclick = function(){
     String+='5';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 six.onclick = function(){
     String+='6';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 seven.onclick = function(){
     String+='7';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 eight.onclick = function(){
     String+='8';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 nine.onclick = function(){
     String+='9';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 zero.onclick = function(){
     String+='0';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
-doubleZero.onclick = function(){
-    String+= '0';
-    String+= '0';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+dot.onclick = function(){
+    String+= '.';
+    Equation.value = String;
 }
 plus.onclick = function(){
     String+= '+';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 minus.onclick = function(){
     String+='-';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 multiply.onclick = function(){
     String+='*';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 divide.onclick = function(){
     String+='/';
-    Result.innerHTML = String;
-    // localStorage.setItem('val',String);
-    // console.log(`${String}`);
+    Equation.value = String;
 }
 equal.onclick = function(){
     
-    String = (eval(String));
-    // localStorage.setItem('val',String);
-    Result.innerHTML = String || '0';
+    String = ((eval(String))).toFixed(2);
+    Result.value = String || '0';
     String = '';
 }
 reset.onclick = function(){
     
     String = '';
-    Result.innerHTML = '0';
+    Result.value = '0';
+    Equation.value = '';
+}
+Result.value = '0';
+document.body.onkeydown = function(){
+    if(event.key !== '0' && event.key !== '1' && event.key !== '2' && event.key !== '3' && event.key !== '4' && event.key !== '5' && event.key !== '6' && event.key !== '7' && event.key !== '8' && event.key !== '9' && event.key !== '0' && event.key !== '.' && event.key !== '/' && event.key !== '+' && event.key !== '*' && event.key !== '-' && event.key !== 'Enter' && event.key !== 'Backspace' && event.key !== '(' && event.key !== ')'){
+        return;
+    }
+    else if(event.key === 'Backspace'){
+        console.log(event.key);
+        if(String === '0' || !String){
+            return;
+        }
+        String  = String.slice(0,-1);
+        Equation.value = String || ''; 
+        
+        return;
+    }
+    else if(event.key === 'Enter'){
+        console.log(event.key);
+        String = ((eval(String))).toFixed(2);
+        Result.value = String;
+        String = '';
+        return;
+    }
+        console.log(event.key);
+        String += event.key;
+        Equation.value = String;
+
 }
